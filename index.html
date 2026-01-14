@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battle Card</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Players</title>
 
     <link rel="stylesheet" href="src/styles/styles.css">
 
@@ -13,87 +13,34 @@
 </head>
 <body>
 
-<div class="card">
-
-    <!-- BLOCO ESQUERDO -->
-    <div class="left-box">
-        <div class="name">DEYVS</div>
-        <button class="icon gender" type="button" aria-label="Gênero">
-            <i class="fa-solid fa-mars"></i>
+    <header class="topbar">
+        <button type="button" id="addPlayerBtn" class="topbar-btn">
+            + ADICIONAR JOGADOR
         </button>
-    </div>
 
-    <!-- BLOCO CENTRAL -->
-    <div class="center-box">
+        <div class="topbar-info" id="playersInfo"></div>
+    </header>
 
-    <div class="stats-row">
-        <!-- NÍVEL -->
-        <div class="stat-box">
-            <div class="label">NÍVEL</div>
-            <div class="value">1</div>
-            <div class="controls">
-                <button type="button">+</button>
-                <button type="button">−</button>
+    <main class="container" id="playersContainer">
+        <!-- Cards gerados via JS -->
+    </main>
+
+    <!-- OVERLAY / MODAL (BUFF / DEBUFF) -->
+    <div class="overlay" id="overlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-top">
+                <h2 id="modalTitle" class="modal-title">Tela</h2>
+                <button type="button" class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+            </div>
+
+            <div class="modal-body" id="modalBody"></div>
+
+            <div class="modal-actions">
+                <button type="button" class="modal-back" id="modalBack">VOLTAR</button>
             </div>
         </div>
-
-        <!-- BÔNUS -->
-        <div class="stat-box">
-            <div class="label">BÔNUS</div>
-            <div class="value">1</div>
-            <div class="controls">
-                <button type="button">+</button>
-                <button type="button">−</button>
-            </div>
-        </div>
-
-        <!-- TOTAL -->
-        <div class="stat-box">
-            <div class="label">TOTAL</div>
-            <div class="value">2</div>
-        </div>
     </div>
 
-    <!-- BUFF / DEBUFF embaixo -->
-    <div class="buff-row">
-        <button type="button" class="buff-btn" data-open="buff">BUFF</button>
-        <button type="button" class="buff-btn" data-open="debuff">DEBUFF</button>
-    </div>
-
-</div>
-
-
-    <!-- BLOCO DIREITO -->
-    <div class="right-box">
-        <button class="close" type="button" aria-label="Fechar card">✕</button>
-
-        <button class="battle" type="button" aria-label="Batalha">
-            <i class="fa-solid fa-hand-fist"></i>
-            <span>BATALHA</span>
-        </button>
-    </div>
-
-</div>
-
-<!-- TELA (MODAL/OVERLAY) -->
-<div class="overlay" id="overlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-top">
-            <h2 id="modalTitle" class="modal-title">Tela</h2>
-            <button type="button" class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
-        </div>
-
-        <div class="modal-body" id="modalBody">
-            <!-- Conteúdo será trocado via JS -->
-        </div>
-
-        <div class="modal-actions">
-            <button type="button" class="modal-back" id="modalBack">VOLTAR</button>
-        </div>
-    </div>
-</div>
-
-<script src="src/javascript/script.js"></script>
+    <script src="src/javascript/script.js"></script>
 </body>
 </html>
-

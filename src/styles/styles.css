@@ -1,25 +1,56 @@
-* {
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+* { box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
+
+body { background: #e6c9a3; padding: 20px; margin: 0; }
+
+/* Topbar */
+.topbar {
+    max-width: 1000px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
 }
 
-body {
-    background: #e6c9a3;
-    padding: 20px;
+.topbar-btn {
+    height: 44px;
+    padding: 0 14px;
+    font-size: 14px;
+    font-weight: bold;
+    background: none;
+    border: 3px solid #000;
+    cursor: pointer;
 }
 
+.topbar-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.topbar-info {
+    font-weight: bold;
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Card */
 .card {
-    background: #44c4f5;
+    background: var(--card-bg, #44c4f5);
     border-radius: 16px;
     padding: 16px;
     display: flex;
     align-items: stretch;
     gap: 15px;
-    max-width: 1000px;
-    margin: auto;
 }
 
-/* ESQUERDA */
+/* Esquerda */
 .left-box {
     border: 3px solid #fff;
     border-radius: 10px;
@@ -34,6 +65,17 @@ body {
 .name {
     font-size: 22px;
     font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.name-input {
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
 }
 
 .gender {
@@ -43,7 +85,7 @@ body {
     cursor: pointer;
 }
 
-/* CENTRO */
+/* Centro */
 .center-box {
     flex: 1;
     border: 3px solid #fff;
@@ -51,7 +93,7 @@ body {
     padding: 15px;
 
     display: flex;
-    flex-direction: column;      /* agora é coluna */
+    flex-direction: column;
     align-items: stretch;
     gap: 12px;
 }
@@ -65,6 +107,7 @@ body {
 
 .stat-box {
     text-align: center;
+    min-width: 140px;
 }
 
 .label {
@@ -97,7 +140,26 @@ body {
     cursor: pointer;
 }
 
-/* DIREITA */
+/* BUFF/DEBUFF embaixo */
+.buff-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.buff-btn {
+    min-width: 110px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    background: none;
+    border: 3px solid #fff;
+    cursor: pointer;
+}
+
+/* Direita */
 .right-box {
     display: flex;
     flex-direction: column;
@@ -112,45 +174,8 @@ body {
     cursor: pointer;
 }
 
-.battle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    font-weight: bold;
-    color: #000;
-}
-
-.battle i {
-    display: block;
-    font-size: 34px;
-    margin-bottom: 4px;
-}
-
-.battle span {
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-/* ===== BUFF / DEBUFF ===== */
-.buff-row {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-
-    margin-top: auto;            /* empurra para o fundo do center-box */
-}
-
-.buff-btn {
-    min-width: 110px;
-    height: 40px;
-    font-size: 16px;
-    font-weight: bold;
-    background: none;
-    border: 3px solid #fff;
-    cursor: pointer;
-}
+/* Ocultar BATALHA por enquanto */
+.battle { display: none; }
 
 /* ===== OVERLAY / MODAL ===== */
 .overlay {
@@ -163,12 +188,10 @@ body {
     background: rgba(0, 0, 0, 0.55);
 }
 
-.overlay.active {
-    display: flex;
-}
+.overlay.active { display: flex; }
 
 .modal {
-    width: min(520px, 100%);
+    width: min(560px, 100%);
     background: #fff;
     border-radius: 14px;
     padding: 16px;
@@ -216,26 +239,96 @@ body {
     background: none;
     border: 3px solid #000;
     cursor: pointer;
+}
 
+/* ===== BLOCO DE NOTAS (BUFF/DEBUFF) ===== */
+.note-area {
+    width: 100%;
+    min-height: 180px;
+    resize: vertical;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+}
+
+/* ===== PENALIDADE (dentro do modal) ===== */
+.penalty-toggle {
+    margin-top: 12px;
+    width: 100%;
+    height: 44px;
+    font-size: 16px;
+    font-weight: bold;
+    background: none;
+    border: 3px solid #000;
+    cursor: pointer;
+}
+
+.penalty-panel {
+    display: none;
+    margin-top: 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.penalty-panel.active { display: block; }
+
+.penalty-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.penalty-value {
+    min-width: 70px;
+    text-align: center;
+    padding: 10px 14px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.penalty-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+    font-weight: bold;
+    background: none;
+    border: 3px solid #000;
+    cursor: pointer;
+}
+
+#penZero { width: 52px; }
+
+/* ===== TOTAL pulsando vermelho quando penalidade < 0 ===== */
+.danger-pulse {
+    animation: pulseRed 0.9s infinite;
+    border-color: #d10000 !important;
+    color: #d10000 !important;
+}
+
+@keyframes pulseRed {
+    0%   { transform: scale(1);    box-shadow: 0 0 0 rgba(209,0,0,0); }
+    50%  { transform: scale(1.03); box-shadow: 0 0 12px rgba(209,0,0,0.55); }
+    100% { transform: scale(1);    box-shadow: 0 0 0 rgba(209,0,0,0); }
 }
 
 /* =========================
    RESPONSIVO (CELULAR)
    ========================= */
-
-/* Tablets e telas menores */
 @media (max-width: 768px) {
-    body {
-        padding: 12px;
-    }
+    body { padding: 12px; }
 
-    .card {
-        flex-direction: column;
-        gap: 12px;
-        padding: 12px;
-    }
+    .topbar { flex-direction: column; align-items: stretch; }
+    .topbar-info { text-align: center; }
 
-    /* Esquerda vira uma faixa */
+    .card { flex-direction: column; gap: 12px; padding: 12px; }
+
     .left-box {
         width: 100%;
         flex-direction: row;
@@ -244,22 +337,11 @@ body {
         padding: 14px;
     }
 
-    .name {
-        font-size: 18px;
-    }
+    .name { font-size: 18px; }
+    .gender { font-size: 34px; }
 
-    .gender {
-        font-size: 34px;
-    }
+    .center-box { width: 100%; padding: 12px; }
 
-    /* Centro ocupa toda a largura */
-    .center-box {
-        width: 100%;
-        min-height: 0;
-        padding: 12px;
-    }
-
-    /* NÍVEL/BÔNUS/TOTAL em grid */
     .stats-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -267,78 +349,28 @@ body {
         align-items: start;
     }
 
-    /* TOTAL ocupa as duas colunas */
-    .stats-row .stat-box:last-child {
-        grid-column: 1 / -1;
-    }
+    .stats-row .stat-box:last-child { grid-column: 1 / -1; }
 
-    .label {
-        font-size: 14px;
-        padding: 6px 10px;
-    }
+    .label { font-size: 14px; padding: 6px 10px; }
+    .value { font-size: 20px; padding: 10px 14px; }
 
-    .value {
-        font-size: 20px;
-        padding: 10px 14px;
-    }
+    .controls button { width: 44px; height: 44px; }
 
-    .controls button {
-        width: 44px;
-        height: 44px;
-        font-size: 22px;
-    }
+    .buff-row { margin-top: 12px; }
+    .buff-btn { min-width: 120px; height: 44px; }
 
-    /* BUFF/DEBUFF embaixo e com botões maiores */
-    .buff-row {
-        margin-top: 12px; /* em celular fica mais natural que "auto" */
-        justify-content: center;
-    }
-
-    .buff-btn {
-        min-width: 120px;
-        height: 44px;
-        font-size: 16px;
-    }
-
-    /* Direita vira linha */
     .right-box {
         width: 100%;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
-        gap: 12px;
-    }
-
-    .close {
-        font-size: 26px;
-    }
-
-    .battle i {
-        font-size: 30px;
-    }
-
-    .battle span {
-        font-size: 13px;
     }
 }
 
-/* Celulares menores (mais “apertados”) */
 @media (max-width: 420px) {
-    .stats-row {
-        grid-template-columns: 1fr; /* tudo em 1 coluna */
-    }
+    .stats-row { grid-template-columns: 1fr; }
+    .stats-row .stat-box:last-child { grid-column: auto; }
 
-    .stats-row .stat-box:last-child {
-        grid-column: auto;
-    }
-
-    .buff-row {
-        flex-direction: column; /* BUFF em cima, DEBUFF embaixo */
-        align-items: center;
-    }
-
-    .buff-btn {
-        width: 100%;
-        max-width: 260px;
-    }
+    .buff-row { flex-direction: column; align-items: center; }
+    .buff-btn { width: 100%; max-width: 260px; }
 }
