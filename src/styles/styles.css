@@ -1,26 +1,219 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background: #e6c9a3;
     padding: 20px;
 }
 
-main {
-    max-width: 800px;
+.card {
+    background: #44c4f5;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    align-items: stretch;
+    gap: 15px;
+    max-width: 1000px;
     margin: auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
 }
 
-button {
-    margin-top: 15px;
-    padding: 10px 15px;
+/* ESQUERDA */
+.left-box {
+    border: 3px solid #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.gender {
+    background: none;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* CENTRO */
+.center-box {
+    flex: 1;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;      /* agora é coluna */
+    align-items: stretch;
+    gap: 12px;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.label {
+    border: 3px solid #fff;
+    padding: 6px 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.value {
+    border: 3px solid #fff;
+    padding: 10px 18px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.controls {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+
+.controls button {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    background: none;
+    border: 3px solid #fff;
+    cursor: pointer;
+}
+
+/* DIREITA */
+.right-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close {
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.battle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    color: #000;
+}
+
+.battle i {
+    display: block;
+    font-size: 34px;
+    margin-bottom: 4px;
+}
+
+.battle span {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* ===== BUFF / DEBUFF ===== */
+.buff-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: auto;            /* empurra para o fundo do center-box */
+}
+
+.buff-btn {
+    min-width: 110px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    background: none;
+    border: 3px solid #fff;
+    cursor: pointer;
+}
+
+/* ===== OVERLAY / MODAL ===== */
+.overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.overlay.active {
+    display: flex;
+}
+
+.modal {
+    width: min(520px, 100%);
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px;
+    border: 3px solid #000;
+}
+
+.modal-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.modal-title {
+    font-size: 18px;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.modal-body {
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 14px;
+    min-height: 120px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.modal-back {
+    min-width: 120px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    background: none;
+    border: 3px solid #000;
     cursor: pointer;
 }
