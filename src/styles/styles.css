@@ -216,4 +216,129 @@ body {
     background: none;
     border: 3px solid #000;
     cursor: pointer;
+
+}
+
+/* =========================
+   RESPONSIVO (CELULAR)
+   ========================= */
+
+/* Tablets e telas menores */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    .card {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    /* Esquerda vira uma faixa */
+    .left-box {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px;
+    }
+
+    .name {
+        font-size: 18px;
+    }
+
+    .gender {
+        font-size: 34px;
+    }
+
+    /* Centro ocupa toda a largura */
+    .center-box {
+        width: 100%;
+        min-height: 0;
+        padding: 12px;
+    }
+
+    /* NÍVEL/BÔNUS/TOTAL em grid */
+    .stats-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        align-items: start;
+    }
+
+    /* TOTAL ocupa as duas colunas */
+    .stats-row .stat-box:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .label {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .value {
+        font-size: 20px;
+        padding: 10px 14px;
+    }
+
+    .controls button {
+        width: 44px;
+        height: 44px;
+        font-size: 22px;
+    }
+
+    /* BUFF/DEBUFF embaixo e com botões maiores */
+    .buff-row {
+        margin-top: 12px; /* em celular fica mais natural que "auto" */
+        justify-content: center;
+    }
+
+    .buff-btn {
+        min-width: 120px;
+        height: 44px;
+        font-size: 16px;
+    }
+
+    /* Direita vira linha */
+    .right-box {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .close {
+        font-size: 26px;
+    }
+
+    .battle i {
+        font-size: 30px;
+    }
+
+    .battle span {
+        font-size: 13px;
+    }
+}
+
+/* Celulares menores (mais “apertados”) */
+@media (max-width: 420px) {
+    .stats-row {
+        grid-template-columns: 1fr; /* tudo em 1 coluna */
+    }
+
+    .stats-row .stat-box:last-child {
+        grid-column: auto;
+    }
+
+    .buff-row {
+        flex-direction: column; /* BUFF em cima, DEBUFF embaixo */
+        align-items: center;
+    }
+
+    .buff-btn {
+        width: 100%;
+        max-width: 260px;
+    }
 }
