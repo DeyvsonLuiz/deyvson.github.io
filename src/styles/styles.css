@@ -1,34 +1,12 @@
-* { box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
-
-body { background: #e6c9a3; padding: 20px; margin: 0; }
-
-/* Topbar */
-.topbar {
-    max-width: 1000px;
-    margin: 0 auto 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+* { 
+    box-sizing: border-box; 
+    font-family: Arial, Helvetica, sans-serif; 
 }
 
-.topbar-btn {
-    height: 44px;
-    padding: 0 14px;
-    font-size: 14px;
-    font-weight: bold;
-    background: none;
-    border: 3px solid #000;
-    cursor: pointer;
-}
-
-.topbar-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.topbar-info {
-    font-weight: bold;
+body { 
+    background: #e6c9a3; 
+    padding: 20px; 
+    margin: 0; 
 }
 
 /* Container */
@@ -40,14 +18,18 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
     gap: 16px;
 }
 
-/* Card */
+/* =========================
+   CARD (Jogador)
+   ========================= */
 .card {
-    background: var(--card-bg, #44c4f5);
-    border-radius: 16px;
-    padding: 16px;
+    background-color: var(--card-bg, #44c4f5);
+    width: 100%;
     display: flex;
     align-items: stretch;
     gap: 15px;
+
+    border-radius: 16px;
+    padding: 16px;
 }
 
 /* Esquerda */
@@ -56,6 +38,7 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
     border-radius: 10px;
     padding: 20px;
     width: 180px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -98,55 +81,68 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
     gap: 12px;
 }
 
-.stats-row {
+/* =========================
+   BLOCO FIXO DE ATRIBUTOS
+   ========================= */
+.stats-fixed {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 12px;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
 }
 
-.stat-box {
-    text-align: center;
+/* Cada coluna: NÍVEL / BÔNUS / TOTAL */
+.stat-vertical {
     min-width: 140px;
-}
-
-.label {
     border: 3px solid #fff;
-    padding: 6px 12px;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
     font-weight: bold;
-    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
-.value {
+/* Título (NÍVEL / BÔNUS / TOTAL) */
+.stat-title {
+    font-size: 14px;
+}
+
+/* Valor numérico */
+.stat-value {
     border: 3px solid #fff;
     padding: 10px 18px;
     font-size: 22px;
     font-weight: bold;
-    margin-bottom: 8px;
+    min-width: 50px;
 }
 
-.controls {
+/* + e - (somente nível e bônus) */
+.stat-controls {
     display: flex;
-    gap: 6px;
-    justify-content: center;
+    gap: 10px;
 }
 
-.controls button {
-    width: 40px;
-    height: 40px;
+.stat-controls button {
+    width: 42px;
+    height: 42px;
     font-size: 22px;
     background: none;
     border: 3px solid #fff;
     cursor: pointer;
 }
 
-/* BUFF/DEBUFF embaixo */
+/* =========================
+   BUFF / DEBUFF (embaixo)
+   ========================= */
 .buff-row {
-    width: 100%;
+    margin-top: 14px;
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: auto;
+    gap: 12px;
 }
 
 .buff-btn {
@@ -175,9 +171,13 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
 }
 
 /* Ocultar BATALHA por enquanto */
-.battle { display: none; }
+.battle { 
+    display: none; 
+}
 
-/* ===== OVERLAY / MODAL ===== */
+/* =========================
+   OVERLAY / MODAL (BUFF/DEBUFF)
+   ========================= */
 .overlay {
     position: fixed;
     inset: 0;
@@ -188,10 +188,12 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
     background: rgba(0, 0, 0, 0.55);
 }
 
-.overlay.active { display: flex; }
+.overlay.active { 
+    display: flex; 
+}
 
 .modal {
-    width: min(560px, 100%);
+    width: 560px;
     background: #fff;
     border-radius: 14px;
     padding: 16px;
@@ -241,7 +243,9 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
     cursor: pointer;
 }
 
-/* ===== BLOCO DE NOTAS (BUFF/DEBUFF) ===== */
+/* =========================
+   BLOCO DE NOTAS (BUFF/DEBUFF)
+   ========================= */
 .note-area {
     width: 100%;
     min-height: 180px;
@@ -253,7 +257,9 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
     outline: none;
 }
 
-/* ===== PENALIDADE (dentro do modal) ===== */
+/* =========================
+   PENALIDADE (dentro do modal)
+   ========================= */
 .penalty-toggle {
     margin-top: 12px;
     width: 100%;
@@ -273,7 +279,9 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
     padding: 12px;
 }
 
-.penalty-panel.active { display: block; }
+.penalty-panel.active { 
+    display: block; 
+}
 
 .penalty-line {
     display: flex;
@@ -303,9 +311,13 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
     cursor: pointer;
 }
 
-#penZero { width: 52px; }
+#penZero { 
+    width: 52px; 
+}
 
-/* ===== TOTAL pulsando vermelho quando penalidade < 0 ===== */
+/* =========================
+   TOTAL pulsando vermelho quando penalidade < 0
+   ========================= */
 .danger-pulse {
     animation: pulseRed 0.9s infinite;
     border-color: #d10000 !important;
@@ -319,66 +331,7 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
 }
 
 /* =========================
-   RESPONSIVO (CELULAR)
-   ========================= */
-/*@media (max-width: 768px) {
-    body { padding: 12px; }
-
-    .topbar { flex-direction: column; align-items: stretch; }
-    .topbar-info { text-align: center; }
-
-    .card { flex-direction: column; gap: 12px; padding: 12px; }
-
-    .left-box {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 14px;
-    }
-
-    .name { font-size: 18px; }
-    .gender { font-size: 34px; }
-
-    .center-box { width: 100%; padding: 12px; }
-
-    .stats-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        align-items: start;
-    }
-
-    .stats-row .stat-box:last-child { grid-column: 1 / -1; }
-
-    .label { font-size: 14px; padding: 6px 10px; }
-    .value { font-size: 20px; padding: 10px 14px; }
-
-    .controls button { width: 44px; height: 44px; }
-
-    .buff-row { margin-top: 12px; }
-    .buff-btn { min-width: 120px; height: 44px; }
-
-    .right-box {
-        width: 100%;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-    }
-}
-*/
-/*
-@media (max-width: 420px) {
-    .stats-row { grid-template-columns: 1fr; }
-    .stats-row .stat-box:last-child { grid-column: auto; }
-
-    .buff-row { flex-direction: column; align-items: center; }
-    .buff-btn { width: 100%; max-width: 260px; }
-}
-*/
-
-/* =========================
-   BARRA INFERIOR
+   BARRA INFERIOR (Rodapé)
    ========================= */
 .bottom-bar {
     max-width: 1000px;
@@ -410,139 +363,4 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
 
 .bottom-info {
     font-weight: bold;
-}
-
-/* =========================
-   RESPONSIVO
-   ========================= */
-/*
-@media (max-width: 600px) {
-    .bottom-bar {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-    }
-
-    .bottom-btn {
-        width: 100%;
-    }
-}
-*/
-/* =========================
-   STATS EM LINHA
-   ========================= */
-.stats-row.horizontal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.stat-inline {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    border: 3px solid #fff;
-    border-radius: 10px;
-    padding: 10px 14px;
-
-    font-weight: bold;
-}
-
-.stat-inline.total {
-    padding: 10px 18px;
-}
-
-.stat-title {
-    font-size: 14px;
-}
-
-.stat-value {
-    min-width: 34px;
-    text-align: center;
-    font-size: 18px;
-}
-
-.stat-inline button {
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
-    background: none;
-    border: 3px solid #fff;
-    cursor: pointer;
-}
-
-/* Responsivo */
-/*
-@media (max-width: 600px) {
-    .stats-row.horizontal {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .stat-inline {
-        justify-content: space-between;
-    }
-}
-*/
-
-/* =========================
-   BLOCO FIXO DE ATRIBUTOS
-   ========================= */
-
-.stats-fixed {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-/* Cada coluna: NÍVEL / BÔNUS / TOTAL */
-.stat-vertical {
-    min-width: 140px;
-    border: 3px solid #fff;
-    border-radius: 10px;
-    padding: 12px;
-    text-align: center;
-    font-weight: bold;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.stat-vertical.total {
-    padding-bottom: 18px;
-}
-
-/* Título (NÍVEL / BÔNUS / TOTAL) */
-.stat-title {
-    font-size: 14px;
-}
-
-/* Valor numérico */
-.stat-value {
-    border: 3px solid #fff;
-    padding: 10px 18px;
-    font-size: 22px;
-    font-weight: bold;
-    min-width: 50px;
-}
-
-/* + e - */
-.stat-controls {
-    display: flex;
-    gap: 10px;
-}
-
-.stat-controls button {
-    width: 42px;
-    height: 42px;
-    font-size: 22px;
-    background: none;
-    border: 3px solid #fff;
-    cursor: pointer;
 }

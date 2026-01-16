@@ -126,7 +126,6 @@ function render() {
             </div>
 
             <div class="center-box">
-
     <div class="stats-fixed">
 
         <!-- NÍVEL -->
@@ -152,9 +151,7 @@ function render() {
         <!-- TOTAL -->
         <div class="stat-vertical total">
             <div class="stat-title">TOTAL</div>
-            <div class="stat-value ${totalPulse}" data-role="total-value">
-                ${total}
-            </div>
+            <div class="stat-value ${totalPulse}" data-role="total-value">${total}</div>
         </div>
 
     </div>
@@ -163,16 +160,8 @@ function render() {
         <button type="button" class="buff-btn" data-action="open-buff">BUFF</button>
         <button type="button" class="buff-btn" data-action="open-debuff">DEBUFF</button>
     </div>
-
 </div>
 
-
-
-                <div class="buff-row">
-                    <button type="button" class="buff-btn" data-action="open-buff">BUFF</button>
-                    <button type="button" class="buff-btn" data-action="open-debuff">DEBUFF</button>
-                </div>
-            </div>
 
             <div class="right-box">
                 <button class="close" type="button" data-action="remove-player" aria-label="Remover jogador" ${closeStyle}>✕</button>
