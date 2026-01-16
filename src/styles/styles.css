@@ -321,7 +321,7 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
 /* =========================
    RESPONSIVO (CELULAR)
    ========================= */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
     body { padding: 12px; }
 
     .topbar { flex-direction: column; align-items: stretch; }
@@ -366,11 +366,183 @@ body { background: #e6c9a3; padding: 20px; margin: 0; }
         align-items: center;
     }
 }
-
+*/
+/*
 @media (max-width: 420px) {
     .stats-row { grid-template-columns: 1fr; }
     .stats-row .stat-box:last-child { grid-column: auto; }
 
     .buff-row { flex-direction: column; align-items: center; }
     .buff-btn { width: 100%; max-width: 260px; }
+}
+*/
+
+/* =========================
+   BARRA INFERIOR
+   ========================= */
+.bottom-bar {
+    max-width: 1000px;
+    margin: 24px auto 0;
+    padding-top: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    border-top: 3px solid #000;
+}
+
+.bottom-btn {
+    height: 44px;
+    padding: 0 16px;
+    font-size: 14px;
+    font-weight: bold;
+    background: none;
+    border: 3px solid #000;
+    cursor: pointer;
+}
+
+.bottom-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.bottom-info {
+    font-weight: bold;
+}
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+/*
+@media (max-width: 600px) {
+    .bottom-bar {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .bottom-btn {
+        width: 100%;
+    }
+}
+*/
+/* =========================
+   STATS EM LINHA
+   ========================= */
+.stats-row.horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.stat-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: 3px solid #fff;
+    border-radius: 10px;
+    padding: 10px 14px;
+
+    font-weight: bold;
+}
+
+.stat-inline.total {
+    padding: 10px 18px;
+}
+
+.stat-title {
+    font-size: 14px;
+}
+
+.stat-value {
+    min-width: 34px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.stat-inline button {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    background: none;
+    border: 3px solid #fff;
+    cursor: pointer;
+}
+
+/* Responsivo */
+/*
+@media (max-width: 600px) {
+    .stats-row.horizontal {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .stat-inline {
+        justify-content: space-between;
+    }
+}
+*/
+
+/* =========================
+   BLOCO FIXO DE ATRIBUTOS
+   ========================= */
+
+.stats-fixed {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Cada coluna: NÍVEL / BÔNUS / TOTAL */
+.stat-vertical {
+    min-width: 140px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-vertical.total {
+    padding-bottom: 18px;
+}
+
+/* Título (NÍVEL / BÔNUS / TOTAL) */
+.stat-title {
+    font-size: 14px;
+}
+
+/* Valor numérico */
+.stat-value {
+    border: 3px solid #fff;
+    padding: 10px 18px;
+    font-size: 22px;
+    font-weight: bold;
+    min-width: 50px;
+}
+
+/* + e - */
+.stat-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.stat-controls button {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+    background: none;
+    border: 3px solid #fff;
+    cursor: pointer;
 }

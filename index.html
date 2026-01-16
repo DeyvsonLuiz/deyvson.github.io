@@ -3,44 +3,78 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Players</title>
+    <title>Munchkin – Gerenciador de Partida</title>
 
+    <!-- CSS principal -->
     <link rel="stylesheet" href="src/styles/styles.css">
 
     <!-- Ícones -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 </head>
 <body>
 
-    <header class="topbar">
-        <button type="button" id="addPlayerBtn" class="topbar-btn">
-            + ADICIONAR JOGADOR
-        </button>
-
-        <div class="topbar-info" id="playersInfo"></div>
-    </header>
-
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="container" id="playersContainer">
-        <!-- Cards gerados via JS -->
+        <!-- Cards de jogadores são gerados via JavaScript -->
     </main>
+
+    <!-- BARRA INFERIOR -->
+    <footer class="bottom-bar">
+        <div class="bottom-info" id="playersInfo">
+            <!-- Ex: 3/6 jogadores -->
+        </div>
+
+        <button
+            type="button"
+            id="addPlayerBtn"
+            class="bottom-btn"
+        >
+             ADICIONAR JOGADOR
+    <i class="fa-solid fa-person-circle-plus" style="margin-left:8px;"></i>
+        </button>
+    </footer>
 
     <!-- OVERLAY / MODAL (BUFF / DEBUFF) -->
     <div class="overlay" id="overlay" aria-hidden="true">
-        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+        >
             <div class="modal-top">
                 <h2 id="modalTitle" class="modal-title">Tela</h2>
-                <button type="button" class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="modalClose"
+                    aria-label="Fechar"
+                >
+                    ✕
+                </button>
             </div>
 
-            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-body" id="modalBody">
+                <!-- Conteúdo dinâmico -->
+            </div>
 
             <div class="modal-actions">
-                <button type="button" class="modal-back" id="modalBack">VOLTAR</button>
+                <button
+                    type="button"
+                    class="modal-back"
+                    id="modalBack"
+                >
+                    VOLTAR
+                </button>
             </div>
         </div>
     </div>
 
+    <!-- JavaScript principal -->
     <script src="src/javascript/script.js"></script>
 </body>
 </html>

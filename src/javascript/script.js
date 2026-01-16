@@ -126,30 +126,47 @@ function render() {
             </div>
 
             <div class="center-box">
-                <div class="stats-row">
-                    <div class="stat-box" data-stat="nivel">
-                        <div class="label">NÍVEL</div>
-                        <div class="value" data-role="nivel-value">${p.nivel}</div>
-                        <div class="controls">
-                            <button type="button" data-action="nivel-plus">+</button>
-                            <button type="button" data-action="nivel-minus">−</button>
-                        </div>
-                    </div>
 
-                    <div class="stat-box" data-stat="bonus">
-                        <div class="label">BÔNUS</div>
-                        <div class="value" data-role="bonus-value">${p.bonus}</div>
-                        <div class="controls">
-                            <button type="button" data-action="bonus-plus">+</button>
-                            <button type="button" data-action="bonus-minus">−</button>
-                        </div>
-                    </div>
+    <div class="stats-fixed">
 
-                    <div class="stat-box" data-stat="total">
-                        <div class="label">TOTAL</div>
-                        <div class="value ${totalPulse}" data-role="total-value">${total}</div>
-                    </div>
-                </div>
+        <!-- NÍVEL -->
+        <div class="stat-vertical">
+            <div class="stat-title">NÍVEL</div>
+            <div class="stat-value" data-role="nivel-value">${p.nivel}</div>
+            <div class="stat-controls">
+                <button type="button" data-action="nivel-plus">+</button>
+                <button type="button" data-action="nivel-minus">−</button>
+            </div>
+        </div>
+
+        <!-- BÔNUS -->
+        <div class="stat-vertical">
+            <div class="stat-title">BÔNUS</div>
+            <div class="stat-value" data-role="bonus-value">${p.bonus}</div>
+            <div class="stat-controls">
+                <button type="button" data-action="bonus-plus">+</button>
+                <button type="button" data-action="bonus-minus">−</button>
+            </div>
+        </div>
+
+        <!-- TOTAL -->
+        <div class="stat-vertical total">
+            <div class="stat-title">TOTAL</div>
+            <div class="stat-value ${totalPulse}" data-role="total-value">
+                ${total}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="buff-row">
+        <button type="button" class="buff-btn" data-action="open-buff">BUFF</button>
+        <button type="button" class="buff-btn" data-action="open-debuff">DEBUFF</button>
+    </div>
+
+</div>
+
+
 
                 <div class="buff-row">
                     <button type="button" class="buff-btn" data-action="open-buff">BUFF</button>
